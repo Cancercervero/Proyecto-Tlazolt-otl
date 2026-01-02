@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # LICENCIA - PROYECTO TLAZOLTÉOTL
 
 ## MIT License + Intellectual Property Clause
@@ -17,3 +18,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Todas las geometrías de diseño, principios físicos de la torre de captura de partículas e integración de biorreactores de algas con purificación de aire urbano impulsada por Venturi descritos en este repositorio están protegidos como secretos industriales y patentes en trámite. 
 
 **La reproducción o comercialización no autorizada de la arquitectura física descrita aquí está estrictamente prohibida.** Este software se proporciona únicamente con fines de validación técnica y simulación científica.
+=======
+MIT License
+
+Copyright (c) 2026 Cancercervero
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+>>>>>>> eb753075399be8a6bfe86e37dfe59f291c8713a0
