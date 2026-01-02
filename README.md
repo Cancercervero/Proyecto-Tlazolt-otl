@@ -27,6 +27,13 @@ Deploy a **Global Urban Terraforming** infrastructure that:
 2. **Sequesters Carbon** biologically via Algae Bioreactors at an industrial scale.
 3. **Generates Resources** (Water & Energy) passively and sustainably.
 
+### Project Structure
+
+- `src/`: Source code for simulations and real-time data processing.
+- `docs/`: Technical documentation, blueprints, and **Patent Claims**.
+- `docs/Technical_Specifications.md`: **[Engineering Datasheet](docs/Technical_Specifications.md)** with complete electromechanical parameters.
+- `results/`: In-silico validation results and high-resolution posters.
+
 ### 🛠️ Execution & Controller (main.py)
 
 The project includes a unified CLI to manage all modules.
