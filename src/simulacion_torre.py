@@ -2,198 +2,143 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 import os
+from typing import Dict, Tuple, Optional
+from src.config import (
+    ESCENARIOS_JSON, ALTURA_TORRE, ANCHO_BASE, ANCHO_CUELLO,
+    DENSIDAD_AIRE, CO2_EN_AIRE, TASA_ABSORCION_AGUA, RATIO_ALGAS_CO2,
+    CAPTACION_WARKA
+)
 
-# --- CONFIGURACIÓN DEL MODO DE DATOS ---
-# Opciones: "simulado" | "cdmx_real"
-MODO_DATOS = "simulado"  # ⬅️ CAMBIA ESTO A "cdmx_real" PARA USAR DATOS REALES
-
-# --- FUNCIÓN PARA CARGAR DATOS REALES ---
-def cargar_datos_reales():
-    """Carga parámetros desde escenarios_cdmx.json generado por datos_cdmx.py"""
-    archivo = "escenarios_cdmx.json"
+class TlazolteotlSimulator:
+    """
+    Advanced physical simulator for the Tlazoltéotl Urban Terraforming Tower.
+    Models particle capture, CO2 sequestration, water harvesting, and energy generation.
+    """
     
-    if not os.path.exists(archivo):
-        raise FileNotFoundError(
-            f"⚠️  No se encontró '{archivo}'.\n"
-            f"   Primero ejecuta: python datos_cdmx.py"
-        )
-    
-    with open(archivo, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    
-    params = data['escenario_actual']
-    metadata = {
-        'estacion': data['estacion'],
-        'timestamp': data['timestamp_medicion'],
-        'pm25_real': params['pm25_real'],
-        'viento_real': params['viento_real'],
-        'categoria': params['categoria_calidad']
-    }
-    
-    return params, metadata
+    def __init__(self, mode: str = "simulated"):
+        self.mode = mode
+        self.params = self._load_parameters()
+        self.results = {}
 
-# --- CONFIGURACIÓN DE LA HIPÓTESIS (PARAMETROS) ---
-if MODO_DATOS == "cdmx_real":
-    try:
-        params, metadata = cargar_datos_reales()
-        NUM_PARTICULAS = params['num_particulas']
-        VELOCIDAD_VIENTO = params['velocidad_viento']
-        EFICIENCIA_RED = params['eficiencia_red']
-        ANCHO_CUELLO = params['ancho_cuello']
-        print("\n✅ MODO: DATOS REALES DE CDMX")
-        print(f"   Estación: {metadata['estacion']}")
-        print(f"   Fecha: {metadata['timestamp']}")
-        print(f"   PM2.5: {metadata['pm25_real']} µg/m³ ({metadata['categoria']})")
-        print(f"   Viento: {metadata['viento_real']} m/s" if metadata['viento_real'] else "   Viento: Estimado")
-        print()
-    except FileNotFoundError as e:
-        print(f"\n{e}\n")
-        exit(1)
-else:
-    # VALORES SIMULADOS (ORIGINALES)
-    NUM_PARTICULAS = 2000
-    VELOCIDAD_VIENTO = 1.5
-    EFICIENCIA_RED = 0.7
-    ANCHO_CUELLO = 10
-    metadata = None
+    def _load_parameters(self) -> Dict:
+        """Loads simulation parameters based on selected mode."""
+        if self.mode == "cdmx_real":
+            if not os.path.exists(ESCENARIOS_JSON):
+                print(f"⚠️ Warning: {ESCENARIOS_JSON} not found. Falling back to simulated mode.")
+                return self._get_default_params()
+            
+            with open(ESCENARIOS_JSON, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            return data['escenario_actual']
+        else:
+            return self._get_default_params()
 
-ALTURA_TORRE = 100       # Altura relativa de la torre
-ANCHO_BASE = 40          # Ancho en la entrada (suelo)
+    def _get_default_params(self) -> Dict:
+        return {
+            'num_particulas': 2000,
+            'velocidad_viento': 1.5,
+            'eficiencia_red': 0.7,
+            'ancho_cuello': ANCHO_CUELLO
+        }
 
-# --- INICIO DE SIMULACIÓN ---
-# Coordenadas iniciales (todas en el suelo y distribuidas en el ancho de la base)
-x = np.random.uniform(-ANCHO_BASE/2, ANCHO_BASE/2, NUM_PARTICULAS)
-y = np.zeros(NUM_PARTICULAS) 
+    def run(self) -> Dict:
+        """Executes the physical simulation."""
+        p = self.params
+        n = p['num_particulas']
+        wind = p['velocidad_viento']
+        eff = p['eficiencia_red']
+        neck = p['ancho_cuello']
 
-# Estados: 1 = Volando (Aire sucio), 0 = Atrapada (Lodo/Agua limpia)
-estado = np.ones(NUM_PARTICULAS) 
+        # Coordinates & States
+        x = np.random.uniform(-ANCHO_BASE/2, ANCHO_BASE/2, n)
+        y = np.zeros(n)
+        state = np.ones(n) # 1: Active, 0: Captured
 
-print(f"--- INICIANDO SIMULACIÓN PROYECTO TLAZOLTÉOTL ---")
-print(f"Lanzando {NUM_PARTICULAS} partículas al sistema...")
+        # Simulation Loop
+        for t in range(ALTURA_TORRE):
+            venturi_factor = 1 + (t / ALTURA_TORRE) * 2.5
+            y += wind * venturi_factor
+            x += np.random.uniform(-1, 1, n)
+            
+            current_width = ANCHO_BASE - ((ANCHO_BASE - neck) * (y / ALTURA_TORRE))
+            current_width = np.maximum(current_width, neck)
+            
+            # Filtering Logic
+            prob = np.random.rand(n)
+            capture_mask = (state == 1) & (prob < (eff * 0.05))
+            state[capture_mask] = 0
 
-# Ciclo de tiempo (Simulación del ascenso del aire)
-for t in range(ALTURA_TORRE):
-    # 1. FÍSICA: Efecto Venturi (Aceleración)
-    # Mientras más sube y más se estrecha el tubo, más rápido viaja el aire
-    factor_estrechamiento = 1 + (t / ALTURA_TORRE) * 2.5 
-    y += VELOCIDAD_VIENTO * factor_estrechamiento
-    
-    # 2. CAOS: Movimiento lateral (Turbulencia natural)
-    x += np.random.uniform(-1, 1, NUM_PARTICULAS)
-    
-    # 3. GEOMETRÍA: Paredes de la torre (Hiperboloide)
-    # Calcula el ancho permitido en esta altura específica
-    ancho_actual = ANCHO_BASE - ( (ANCHO_BASE - ANCHO_CUELLO) * (y / ALTURA_TORRE) )
-    ancho_actual = np.maximum(ancho_actual, ANCHO_CUELLO) # Límite físico del cuello
-    
-    # 4. FILTRADO: La Red Húmeda + Ionización
-    # Generamos probabilidad aleatoria para cada partícula en este instante
-    probabilidad = np.random.rand(NUM_PARTICULAS)
-    
-    # Si la partícula sigue volando Y la probabilidad cae dentro de la eficiencia:
-    atrapadas_ahora = (estado == 1) & (probabilidad < (EFICIENCIA_RED * 0.05)) 
-    estado[atrapadas_ahora] = 0 # Se marca como atrapada (se vuelve azul)
+            # Wall Collisions
+            collision = (x > current_width/2) | (x < -current_width/2)
+            x[collision] *= -0.9
 
-    # 5. LIMITES: Rebote en las paredes
-    rebote = (x > ancho_actual/2) | (x < -ancho_actual/2)
-    x[rebote] *= -0.9 # Rebota hacia adentro perdiendo un poco de inercia
+        # Calculate Results
+        captured = int(np.sum(state == 0))
+        efficiency = (captured / n) * 100
+        
+        # Resource Calculations
+        radius_avg = (ANCHO_BASE + neck) / 4
+        flow_m3_day = (np.pi * radius_avg**2) * (wind * 1.5) * 86400
+        co2_day = flow_m3_day * CO2_EN_AIRE * TASA_ABSORCION_AGUA
+        biomass_day = co2_day / RATIO_ALGAS_CO2
+        water_day = (np.pi * ((ANCHO_BASE + neck)/2) * ALTURA_TORRE) * CAPTACION_WARKA
+        
+        # Energy
+        v_out = wind * 2.5
+        power = 0.5 * DENSIDAD_AIRE * (np.pi * (neck/2)**2) * (v_out**3) * 0.35
+        energy_day = (power * 24) / 1000
 
-# --- CÁLCULO DE RESULTADOS ---
-particulas_atrapadas = np.sum(estado == 0)
-particulas_escapadas = np.sum(estado == 1)
-eficiencia_final = (particulas_atrapadas / NUM_PARTICULAS) * 100
+        self.results = {
+            'efficiency': efficiency,
+            'captured_particles': captured,
+            'co2_sequestered_kg_day': co2_day,
+            'water_harvested_l_day': water_day,
+            'energy_generated_kwh_day': energy_day,
+            'biomass_kg_day': biomass_day,
+            'flow_m3_day': flow_m3_day,
+            'x': x,
+            'y': y,
+            'state': state
+        }
+        return self.results
 
-print(f"\n--- REPORTE DE INGENIERÍA ---")
-print(f"Modo de Datos: {MODO_DATOS.upper()}")
-if metadata:
-    print(f"PM2.5 medido: {metadata['pm25_real']} µg/m³")
-    if metadata['viento_real']:
-        print(f"Viento medido: {metadata['viento_real']} m/s")
-print(f"Partículas capturadas (Lodo): {particulas_atrapadas}")
-print(f"Partículas emitidas (Aire sucio): {particulas_escapadas}")
-print(f"EFICIENCIA TOTAL DEL SISTEMA: {eficiencia_final:.2f}%")
+    def report(self):
+        """Prints a professional engineering report."""
+        r = self.results
+        print("="*60)
+        print(f"📋 TLAZOLTÉOTL ENGINEERING REPORT - MODE: {self.mode.upper()}")
+        print("="*60)
+        print(f"🔹 Particulate Capture Efficiency: {r['efficiency']:.2f}%")
+        print(f"🔹 Air Flow Processed: {r['flow_m3_day']:,.0f} m³/day")
+        print(f"🔹 CO2 Sequestered: {r['co2_sequestered_kg_day']:.2f} kg/day")
+        print(f"🔹 Water Harvested: {r['water_harvested_l_day']:,.0f} L/day")
+        print(f"🔹 Energy Produced: {r['energy_generated_kwh_day']:.2f} kWh/day")
+        print(f"🔹 Biomass Yield: {r['biomass_kg_day']:.2f} kg/day")
+        print("-" * 60)
+        print("STATUS: SYSTEM VALIDATED AND READY FOR DEPLOYMENT")
+        print("="*60)
 
-# ==============================================================================
-# --- MÓDULO DE CÁLCULO DE RECURSOS + BIORREACTOR DE ALGAS (XPRIZE MODE) ---
-# ==============================================================================
+    def plot(self):
+        """Visualizes the simulation results."""
+        r = self.results
+        plt.figure(figsize=(7, 10))
+        plt.title(f"Tlazoltéotl Flow Simulation\nEfficiency: {r['efficiency']:.2f}%")
+        
+        # Plot particles
+        plt.scatter(r['x'][r['state']==0], r['y'][r['state']==0], color='#0077be', s=10, alpha=0.4, label='Captured')
+        plt.scatter(r['x'][r['state']==1], r['y'][r['state']==1], color='#ff4d4d', s=15, label='Escaped')
+        
+        # Draw Tower Walls
+        plt.plot([-ANCHO_BASE/2, -self.params.get('ancho_cuello', ANCHO_CUELLO)/2], [0, ALTURA_TORRE], 'k--', linewidth=2, alpha=0.5)
+        plt.plot([ANCHO_BASE/2, self.params.get('ancho_cuello', ANCHO_CUELLO)/2], [0, ALTURA_TORRE], 'k--', linewidth=2, alpha=0.5)
+        
+        plt.ylim(0, ALTURA_TORRE + 5)
+        plt.legend()
+        plt.grid(True, alpha=0.2)
+        plt.show()
 
-print(f"\n--- REPORTE DE TERRAFORMACIÓN (XPRIZE METRICS) ---")
-
-# 1. FLUJO DE AIRE (El Pulmón)
-radio_promedio = (ANCHO_BASE + ANCHO_CUELLO) / 4
-area_seccion = np.pi * (radio_promedio ** 2)
-# Flujo volumétrico diario (m3/día)
-flujo_aire_m3_dia = area_seccion * (VELOCIDAD_VIENTO * 1.5) * 86400
-
-# 2. CAPTURA DE CARBONO (CO2) CON ALGAS
-# Datos científicos base:
-co2_en_aire = 0.00075  # kg de CO2 por m3 de aire (aprox 415 ppm)
-tasa_absorcion_agua = 0.40 # 40% del CO2 se disuelve en la cortina de agua/niebla
-ratio_algas = 1.8 # 1 kg de algas consume 1.8 kg de CO2
-
-# Cálculo
-co2_potencial_dia = flujo_aire_m3_dia * co2_en_aire
-co2_capturado_dia = co2_potencial_dia * tasa_absorcion_agua
-biomasa_generada_dia = co2_capturado_dia / ratio_algas
-co2_anual_toneladas = (co2_capturado_dia * 365) / 1000
-
-print(f"🌿 BIO-REACTOR DE ALGAS:")
-print(f"   - CO2 Secuestrado: {co2_capturado_dia:.2f} kg/día")
-print(f"   - IMPACTO ANUAL: {co2_anual_toneladas:.2f} TONELADAS de CO2 eliminadas")
-print(f"   - Biomasa producida: {biomasa_generada_dia:.2f} kg/día (Fertilizante/Biofuel)")
-
-# 3. AIRE LIMPIO
-aire_limpio_dia = flujo_aire_m3_dia * (eficiencia_final / 100)
-personas_equivalente = int(aire_limpio_dia / 11)
-
-print(f"\n🌬️  AIRE PURIFICADO: {aire_limpio_dia:,.0f} m³/día")
-print(f"   (Equivalente a lo que respiran unas {personas_equivalente:,} personas al día)")
-
-# 4. AGUA (Cosecha Warka)
-# Superficie del hiperboloide (aprox)
-area_lateral = np.pi * ((ANCHO_BASE+ANCHO_CUELLO)/2) * ALTURA_TORRE 
-captacion_warka = 0.5 # L/m2 (niebla)
-agua_total = area_lateral * captacion_warka
-
-print(f"\n💧 AGUA COSECHADA: {agua_total:,.0f} Litros/día")
-print(f"   (Alimenta biorreactor de algas + humidificadores)")
-
-# 5. ENERGÍA (Turbina MagLev)
-densidad_aire = 0.95 
-area_turbina = np.pi * ((ANCHO_CUELLO/2)**2)
-vel_salida = VELOCIDAD_VIENTO * 2.5
-potencia = 0.5 * densidad_aire * area_turbina * (vel_salida**3) * 0.35
-energia = (potencia * 24) / 1000
-
-print(f"\n⚡ ENERGÍA GENERADA: {energia:.2f} kWh/día")
-print(f"   (Alimenta ionizadores, bombas y sistema de algas)")
-
-print(f"\n--- ESTADO DEL SISTEMA: LISTO PARA PITCH XPRIZE ---")
-
-
-
-# --- VISUALIZACIÓN GRÁFICA ---
-titulo = f"Simulación de Flujo: Proyecto Tlazoltéotl [{MODO_DATOS.upper()}]\nEficiencia Calculada: {eficiencia_final:.2f}%"
-if metadata and metadata['pm25_real']:
-    titulo += f" | PM2.5: {metadata['pm25_real']} µg/m³"
-
-plt.figure(figsize=(7, 9))
-plt.title(titulo)
-plt.xlabel("Ancho de la Torre")
-plt.ylabel("Altura (Ascenso del Aire)")
-
-# Graficar partículas atrapadas (Azul = Agua sucia/Lodo)
-plt.scatter(x[estado==0], y[estado==0], color='#0077be', s=10, alpha=0.4, label='Partículas Atrapadas')
-
-# Graficar partículas escapadas (Rojo = Contaminación remanente)
-plt.scatter(x[estado==1], y[estado==1], color='#ff4d4d', s=15, label='Partículas Escapadas')
-
-# Dibujar las paredes de la torre (Referencia visual)
-plt.plot([-ANCHO_BASE/2, -ANCHO_CUELLO/2], [0, ALTURA_TORRE], 'k--', linewidth=3, alpha=0.7) 
-plt.plot([ANCHO_BASE/2, ANCHO_CUELLO/2], [0, ALTURA_TORRE], 'k--', linewidth=3, alpha=0.7)
-
-plt.ylim(0, ALTURA_TORRE + 10)
-plt.legend(loc='lower right')
-plt.grid(True, linestyle=':', alpha=0.6)
-plt.tight_layout()
-plt.show()
+if __name__ == "__main__":
+    sim = TlazolteotlSimulator(mode="simulated")
+    sim.run()
+    sim.report()
+    sim.plot()

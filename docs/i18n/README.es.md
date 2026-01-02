@@ -27,5 +27,21 @@ Desplegar una infraestructura de **Terraformación Urbana** que:
 2. **Capture Carbono** de manera biológica (Biorreactores de Algas) a una escala industrial.
 3. **Genere recursos** (Agua y Energía) de manera pasiva y autosustentable.
 
+### 🛠️ Ejecución y Control (main.py)
+
+El proyecto incluye un controlador centralizado (CLI) para gestionar todos los módulos.
+
+1. **Instalar dependencias:** `pip install -r requirements.txt`
+2. **Correr simulación básica:** `python main.py --run-sim`
+3. **Correr con datos reales:** `python main.py --run-sim --real-data`
+4. **Generar validación completa:** `python main.py --all`
+
+**Flags Disponibles:**
+
+- `--run-sim`: Visualización de captura de partículas.
+- `--gen-history`: Procesamiento atmosférico de 365 días.
+- `--plot-history`: Análisis multi-escala de recursos.
+- `--poster`: Ensamblaje de la Lámina Maestra de Ingeniería.
+
 ---
 Copyright (c) 2026 Proyecto Tlazoltéotl - Todos los derechos reservados.
