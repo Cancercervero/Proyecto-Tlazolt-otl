@@ -4,7 +4,7 @@
 
 ![Blueprint](../../docs/Blueprint_V1.jpg)
 
-## 🚀 DASHBOARD DE IMPACTO GLOBAL (VALIDACIÓN 2026)
+## 🚀 DASHBOARD DE IMPACTO GLOBAL (PROYECCIÓN 2026 basada en DATOS CDMX 2025)
 
 | Métrica | Capacidad Anual | Equivalencia Social |
 | :--- | :--- | :--- |

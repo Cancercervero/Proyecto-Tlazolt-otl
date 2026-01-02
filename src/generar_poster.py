@@ -53,7 +53,7 @@ def crear_poster():
 
     # Título y Subtítulo
     title_text = "PROJECT TLAZOLTÉOTL: URBAN TERRAFORMING SYSTEM"
-    subtitle_text = "IN-SILICO VALIDATION 2026: 10,204 TONS CO2 REMOVED | 1.8M LITERS WATER HARVESTED | ZERO ENERGY COST"
+    subtitle_text = "VALIDATION 2026 (BASED ON 2025 CDMX DATA): 10,204 TONS CO2 REMOVED | 1.8M L WATER | ZERO ENERGY"
     
     # Dibujar texto centrado
     title_bbox = draw.textbbox((0, 0), title_text, font=font_title)
