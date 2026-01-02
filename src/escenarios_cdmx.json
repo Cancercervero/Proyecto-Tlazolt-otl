@@ -1,0 +1,23 @@
+{
+  "ultima_actualizacion": "2026-01-02T10:28:31.079138",
+  "estacion": "Merced, México, Mexico",
+  "timestamp_medicion": "2026-01-02 02:00:00",
+  "escenario_actual": {
+    "num_particulas": 3320,
+    "velocidad_viento": 0.68,
+    "pm25_real": 72,
+    "viento_real": 1.5,
+    "viento_estimado": false,
+    "categoria_calidad": "Moderada",
+    "eficiencia_red": 0.7,
+    "ancho_cuello": 10
+  },
+  "datos_atmosfericos_crudos": {
+    "aqi": 72,
+    "pm25": 72,
+    "pm10": 25,
+    "temperatura": 12,
+    "humedad": 43,
+    "viento": 1.5
+  }
+}
