@@ -279,7 +279,7 @@ Pre-purchase agreements available:
 - Verification: Gold Standard certification (in progress)
 - Price: $50-200/ton (negotiable for bulk)
 
-**Contact:** <partnerships@proyecto-tlazolteotl.org>
+**Contact:** <cancercervero@gmail.com>
 
 ### For Developers / Researchers
 
@@ -294,12 +294,7 @@ Pre-purchase agreements available:
 
 **Project Lead:** Proyecto Tlazoltéotl Engineering Team  
 **Location:** Mexico City, Mexico  
-**Email:** <cancercervero@gmail.com>  
-**Twitter:** @TlazolteotlTower (launching Jan 3, 2026)
-
-**Media Inquiries:** <press@proyecto-tlazolteotl.org>  
-**Partnerships:** <partnerships@proyecto-tlazolteotl.org>  
-**Academic Collaboration:** <research@proyecto-tlazolteotl.org>
+**Email:** <cancercervero@gmail.com>
 
 ---
 

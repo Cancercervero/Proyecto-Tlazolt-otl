@@ -1065,9 +1065,6 @@ When you review this application, the math is irrefutable:
 **Phone:** +52 624 240 5550  
 **Location:** Mexico City, Mexico
 
-**Media Inquiries:** <press@proyecto-tlazolteotl.org>  
-**Partnership Inquiries:** <partnerships@proyecto-tlazolteotl.org>
-
 ---
 
 ## 🌟 TAGLINE FOR SOCIAL MEDIA
