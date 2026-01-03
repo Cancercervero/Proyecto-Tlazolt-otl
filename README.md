@@ -294,7 +294,7 @@ Pre-purchase agreements available:
 
 **Project Lead:** Proyecto Tlazoltéotl Engineering Team  
 **Location:** Mexico City, Mexico  
-**Email:** <contact@proyecto-tlazolteotl.org>  
+**Email:** <cancercervero@gmail.com>  
 **Twitter:** @TlazolteotlTower (launching Jan 3, 2026)
 
 **Media Inquiries:** <press@proyecto-tlazolteotl.org>  

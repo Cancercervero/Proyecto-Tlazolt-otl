@@ -1060,9 +1060,9 @@ When you review this application, the math is irrefutable:
 
 ### C. Contact Information
 
-**Principal Investigator:** [Your Name]  
-**Email:** <tlazolteotl@proyecto.org>  
-**Phone:** +52 [XXX] XXX-XXXX  
+**Principal Investigator:** Samuel Hernández  
+**Email:** <cancercervero@gmail.com>  
+**Phone:** +52 624 240 5550  
 **Location:** Mexico City, Mexico
 
 **Media Inquiries:** <press@proyecto-tlazolteotl.org>  

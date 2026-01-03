@@ -236,7 +236,7 @@ Biomass Harvest + Water Recycle
 
 ## 📞 CONTACT & RESOURCES
 
-**Project Lead:** [Your Name]  
+**Project Lead:** Samuel Hernández  
 **Location:** Mexico City, Mexico  
 **Status:** Prototype Ready (Simulation Validated)
 
