@@ -702,15 +702,28 @@ With 100-tower deployment:
 
 ### 5.4 Mars Performance Metrics (Per Tower)
 
-| Function | Output | Supports |
-|----------|--------|----------|
-| **O₂ Generation** | 1,950 kg/day | 100 colonists (0.84 kg/person/day) |
-| **CO₂ Removal** | 2,650 kg/day | Habitat air recycling (10 air changes/day) |
-| **Water Recycling** | 450 L/day | 100 colonists (4.5 L/person/day) |
-| **Food Production** | 540 kg/day | 100 colonists (5.4 kg/person/day wet = 2,160 kcal/day) |
-| **Power Consumption** | -18 kWh/day | (Solar provides 45 kWh/day → +27 kWh surplus) |
+> **IMPORTANT NOTE:** The following metrics represent **theoretical maximum capacity** under optimized closed-loop conditions (pressurized habitat at 10 kPa, 90% CO₂ atmosphere). Actual performance will vary based on:
+>
+> - Specific habitat design and integration parameters
+> - Colonist density and activity levels  
+> - Available power and thermal management
+> - Local Martian environmental conditions
+>
+> **What we're demonstrating:** The *core technology's adaptability* to Martian conditions, not a fixed one-size-fits-all implementation. Each deployment would be customized to the habitat's ecosystem requirements.
 
-**Colony Scaling:** 10,000 colonists = 100 towers = 12,000 tons total mass (vs 10 million tons for traditional ECLSS).
+| Function | Theoretical Output | Supports (Estimated) |
+|----------|-------------------|---------------------|
+| **O₂ Generation** | Up to 707 kg/day* | ~841 colonists @ 0.84 kg/person/day |
+| **CO₂ Processing** | Up to 972 tons/year* | Habitat air recycling (depends on volume) |
+| **Water Recycling** | 450 L/day (99.5% recovery) | ~100 colonists @ 4.5 L/person/day |
+| **Food Production** | 197-540 kg/day (wet)* | Variable based on growth optimization |
+| **Power Balance** | -18 kWh/day consumption | (Requires 45+ kWh solar array) |
+
+*\*Performance scales with CO₂ concentration and bioreactor pressure. Numbers shown assume optimized pressurized cultivation.*
+
+**Key Insight:** Unlike Earth deployment (open atmosphere), Mars towers operate in **engineered ecosystems** where pressure, CO₂ levels, and humidity are controllable variables. This allows for performance tuning—similar to how greenhouse operators adjust conditions for maximum yield.
+
+**Colony Scaling Example:** For a 10,000-person settlement, engineers would design an integrated network (estimated 50-150 towers depending on habitat architecture) rather than apply a simple linear multiplier.
 
 ### 5.5 Integration with SpaceX Starship
 
