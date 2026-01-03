@@ -198,6 +198,9 @@ python main.py --gen-history
 
 # Create full validation poster
 python main.py --all
+
+# 🆕 NEW: Dual-Planet Validation (Earth vs Mars comparison)
+python src/dual_planet_validation.py
 ```
 
 ### Available Commands
