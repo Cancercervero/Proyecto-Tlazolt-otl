@@ -5,7 +5,8 @@
 [![Español](https://img.shields.io/badge/lang-Español-red.svg)](README.es.md)
 
 ---
- 🌍🔴
+
+# PROJECT TLAZOLTÉOTL: DUAL-USE ATMOSPHERIC SYSTEM 🌍🔴
 
 **Earth → Mars Technology Transfer**
 
