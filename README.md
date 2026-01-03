@@ -1,6 +1,16 @@
-<!-- Language Selector -->
+<!-- Language Selector - 12 Languages for Global Impact -->
 [![English](https://img.shields.io/badge/lang-English-blue.svg)](README.md)
 [![Español](https://img.shields.io/badge/lang-Español-red.svg)](README.es.md)
+[![Français](https://img.shields.io/badge/lang-Français-blue.svg)](README.fr.md)
+[![中文](https://img.shields.io/badge/lang-中文-red.svg)](README.zh.md)
+[![Русский](https://img.shields.io/badge/lang-Русский-blue.svg)](README.ru.md)
+[![हिन्दी](https://img.shields.io/badge/lang-हिन्दी-orange.svg)](README.hi.md)
+[![日本語](https://img.shields.io/badge/lang-日本語-red.svg)](README.ja.md)
+[![한국어](https://img.shields.io/badge/lang-한국어-blue.svg)](README.ko.md)
+[![Português](https://img.shields.io/badge/lang-Português-green.svg)](README.pt.md)
+[![العربية](https://img.shields.io/badge/lang-العربية-green.svg)](README.ar.md)
+[![Deutsch](https://img.shields.io/badge/lang-Deutsch-yellow.svg)](README.de.md)
+[![Italiano](https://img.shields.io/badge/lang-Italiano-green.svg)](README.it.md)
 
 ---
 
