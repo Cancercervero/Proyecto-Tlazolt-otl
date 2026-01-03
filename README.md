@@ -1,5 +1,3 @@
-# 🌍 PROYECTO TLAZOLTÉOTL: URBAN TERRAFORMING SYSTEM
-
 <!-- Language Selector -->
 [![English](https://img.shields.io/badge/lang-English-blue.svg)](README.md)
 [![Español](https://img.shields.io/badge/lang-Español-red.svg)](README.es.md)
