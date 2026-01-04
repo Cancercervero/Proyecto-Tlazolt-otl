@@ -1,0 +1,402 @@
+[
+  {
+    "city": "Delhi_India",
+    "country": "India",
+    "parameters": {
+      "country": "India",
+      "pm25_avg": 110,
+      "pm10_avg": 200,
+      "humidity_avg": 65,
+      "temp_avg": 25,
+      "wind_avg": 3.2,
+      "population": 32000000,
+      "rainfall_mm": 714,
+      "currency": "USD",
+      "carbon_credit_price": 25
+    },
+    "metrics": {
+      "air_flow_m3_s": 3.5466922339405564,
+      "air_volume_day_m3": 306434.2090124641,
+      "particulates": {
+        "air_volume_day": 306434.2090124641,
+        "pm25_kg_day": 0.032696530101629914,
+        "pm10_kg_day": 0.059448236548418035,
+        "total_particulates_kg_day": 0.09214476665004795
+      },
+      "water_liters_day": 8726.080513075955,
+      "energy_kwh_day": 12.61042565597668,
+      "co2_kg_day": 19.239000000000004
+    },
+    "economics": {
+      "carbon_credits_usd": 175.55587500000001,
+      "water_revenue_usd": 5688.444625669084,
+      "energy_revenue_usd": 552.3366437317786,
+      "health_savings_usd": 84.08209956816876,
+      "total_annual_revenue_usd": 6500.419243969031,
+      "opex_annual_usd": 85000,
+      "net_annual_usd": -78499.58075603096,
+      "capex_usd": 3500000,
+      "roi_years": 999
+    }
+  },
+  {
+    "city": "Dhaka_Bangladesh",
+    "country": "Bangladesh",
+    "parameters": {
+      "country": "Bangladesh",
+      "pm25_avg": 97,
+      "pm10_avg": 185,
+      "humidity_avg": 79,
+      "temp_avg": 26,
+      "wind_avg": 2.8,
+      "population": 22000000,
+      "rainfall_mm": 2076,
+      "currency": "USD",
+      "carbon_credit_price": 20
+    },
+    "metrics": {
+      "air_flow_m3_s": 3.0929765886287623,
+      "air_volume_day_m3": 267233.1772575251,
+      "particulates": {
+        "air_volume_day": 267233.1772575251,
+        "pm25_kg_day": 0.025143969648160538,
+        "pm10_kg_day": 0.047954993658862875,
+        "total_particulates_kg_day": 0.07309896330702341
+      },
+      "water_liters_day": 13790.707191020105,
+      "energy_kwh_day": 8.447999999999999,
+      "co2_kg_day": 19.588800000000006
+    },
+    "economics": {
+      "carbon_credits_usd": 142.99824000000004,
+      "water_revenue_usd": 3523.5256873056364,
+      "energy_revenue_usd": 370.02239999999995,
+      "health_savings_usd": 66.70280401765886,
+      "total_annual_revenue_usd": 4103.249131323295,
+      "opex_annual_usd": 85000,
+      "net_annual_usd": -80896.75086867671,
+      "capex_usd": 3500000,
+      "roi_years": 999
+    }
+  },
+  {
+    "city": "Lahore_Pakistan",
+    "country": "Pakistan",
+    "parameters": {
+      "country": "Pakistan",
+      "pm25_avg": 105,
+      "pm10_avg": 195,
+      "humidity_avg": 60,
+      "temp_avg": 24,
+      "wind_avg": 3.5,
+      "population": 13000000,
+      "rainfall_mm": 628,
+      "currency": "USD",
+      "carbon_credit_price": 22
+    },
+    "metrics": {
+      "air_flow_m3_s": 3.8922558922558923,
+      "air_volume_day_m3": 336290.9090909091,
+      "particulates": {
+        "air_volume_day": 336290.9090909091,
+        "pm25_kg_day": 0.0342512290909091,
+        "pm10_kg_day": 0.06360942545454547,
+        "total_particulates_kg_day": 0.09786065454545456
+      },
+      "water_liters_day": 8511.571291389597,
+      "energy_kwh_day": 16.5,
+      "co2_kg_day": 18.889200000000002
+    },
+    "economics": {
+      "carbon_credits_usd": 151.68027600000002,
+      "water_revenue_usd": 5815.786431980684,
+      "energy_revenue_usd": 722.6999999999999,
+      "health_savings_usd": 89.2978472727273,
+      "total_annual_revenue_usd": 6779.464555253411,
+      "opex_annual_usd": 85000,
+      "net_annual_usd": -78220.5354447466,
+      "capex_usd": 3500000,
+      "roi_years": 999
+    }
+  },
+  {
+    "city": "Beijing_China",
+    "country": "China",
+    "parameters": {
+      "country": "China",
+      "pm25_avg": 85,
+      "pm10_avg": 150,
+      "humidity_avg": 55,
+      "temp_avg": 12,
+      "wind_avg": 4.2,
+      "population": 21000000,
+      "rainfall_mm": 571,
+      "currency": "USD",
+      "carbon_credit_price": 35
+    },
+    "metrics": {
+      "air_flow_m3_s": 4.867368421052632,
+      "air_volume_day_m3": 420540.63157894736,
+      "particulates": {
+        "air_volume_day": 420540.63157894736,
+        "pm25_kg_day": 0.03467357507368421,
+        "pm10_kg_day": 0.06118866189473684,
+        "total_particulates_kg_day": 0.09586223696842106
+      },
+      "water_liters_day": 9244.35661287491,
+      "energy_kwh_day": 28.511999999999997,
+      "co2_kg_day": 11.448
+    },
+    "economics": {
+      "carbon_credits_usd": 146.24820000000003,
+      "water_revenue_usd": 6508.812825776031,
+      "energy_revenue_usd": 1248.8256,
+      "health_savings_usd": 87.47429123368423,
+      "total_annual_revenue_usd": 7991.360917009715,
+      "opex_annual_usd": 85000,
+      "net_annual_usd": -77008.63908299028,
+      "capex_usd": 3500000,
+      "roi_years": 999
+    }
+  },
+  {
+    "city": "Cairo_Egypt",
+    "country": "Egypt",
+    "parameters": {
+      "country": "Egypt",
+      "pm25_avg": 93,
+      "pm10_avg": 175,
+      "humidity_avg": 55,
+      "temp_avg": 22,
+      "wind_avg": 3.8,
+      "population": 21000000,
+      "rainfall_mm": 25,
+      "currency": "USD",
+      "carbon_credit_price": 18
+    },
+    "metrics": {
+      "air_flow_m3_s": 4.2545278450363195,
+      "air_volume_day_m3": 367591.20581113803,
+      "particulates": {
+        "air_volume_day": 367591.20581113803,
+        "pm25_kg_day": 0.033160402676222764,
+        "pm10_kg_day": 0.06239860718644068,
+        "total_particulates_kg_day": 0.09555900986266344
+      },
+      "water_liters_day": 6448.144698954799,
+      "energy_kwh_day": 21.11692128279883,
+      "co2_kg_day": 14.882400000000002
+    },
+    "economics": {
+      "carbon_credits_usd": 97.77736800000002,
+      "water_revenue_usd": 5825.092717418292,
+      "energy_revenue_usd": 924.9211521865888,
+      "health_savings_usd": 87.19759649968039,
+      "total_annual_revenue_usd": 6934.988834104561,
+      "opex_annual_usd": 85000,
+      "net_annual_usd": -78065.01116589544,
+      "capex_usd": 3500000,
+      "roi_years": 999
+    }
+  },
+  {
+    "city": "Jakarta_Indonesia",
+    "country": "Indonesia",
+    "parameters": {
+      "country": "Indonesia",
+      "pm25_avg": 78,
+      "pm10_avg": 140,
+      "humidity_avg": 82,
+      "temp_avg": 27,
+      "wind_avg": 2.5,
+      "population": 34000000,
+      "rainfall_mm": 1755,
+      "currency": "USD",
+      "carbon_credit_price": 20
+    },
+    "metrics": {
+      "air_flow_m3_s": 2.7523809523809524,
+      "air_volume_day_m3": 237805.7142857143,
+      "particulates": {
+        "air_volume_day": 237805.7142857143,
+        "pm25_kg_day": 0.017992380342857148,
+        "pm10_kg_day": 0.032294016,
+        "total_particulates_kg_day": 0.05028639634285715
+      },
+      "water_liters_day": 12178.492719051326,
+      "energy_kwh_day": 6.013119533527697,
+      "co2_kg_day": 19.938600000000005
+    },
+    "economics": {
+      "carbon_credits_usd": 145.55178000000004,
+      "water_revenue_usd": 3311.636632628032,
+      "energy_revenue_usd": 263.3746355685131,
+      "health_savings_usd": 45.88633666285715,
+      "total_annual_revenue_usd": 3766.4493848594025,
+      "opex_annual_usd": 85000,
+      "net_annual_usd": -81233.5506151406,
+      "capex_usd": 3500000,
+      "roi_years": 999
+    }
+  },
+  {
+    "city": "Kolkata_India",
+    "country": "India",
+    "parameters": {
+      "country": "India",
+      "pm25_avg": 88,
+      "pm10_avg": 165,
+      "humidity_avg": 75,
+      "temp_avg": 26,
+      "wind_avg": 3.0,
+      "population": 15000000,
+      "rainfall_mm": 1582,
+      "currency": "USD",
+      "carbon_credit_price": 25
+    },
+    "metrics": {
+      "air_flow_m3_s": 3.313903487816531,
+      "air_volume_day_m3": 286321.2613473483,
+      "particulates": {
+        "air_volume_day": 286321.2613473483,
+        "pm25_kg_day": 0.024440382868609653,
+        "pm10_kg_day": 0.04582571787864309,
+        "total_particulates_kg_day": 0.07026610074725274
+      },
+      "water_liters_day": 12204.07019402754,
+      "energy_kwh_day": 10.390670553935859,
+      "co2_kg_day": 19.588800000000006
+    },
+    "economics": {
+      "carbon_credits_usd": 178.74780000000007,
+      "water_revenue_usd": 4089.217799912807,
+      "energy_revenue_usd": 455.1113702623906,
+      "health_savings_usd": 64.11781693186813,
+      "total_annual_revenue_usd": 4787.194787107066,
+      "opex_annual_usd": 85000,
+      "net_annual_usd": -80212.80521289294,
+      "capex_usd": 3500000,
+      "roi_years": 999
+    }
+  },
+  {
+    "city": "Mumbai_India",
+    "country": "India",
+    "parameters": {
+      "country": "India",
+      "pm25_avg": 82,
+      "pm10_avg": 155,
+      "humidity_avg": 77,
+      "temp_avg": 27,
+      "wind_avg": 3.5,
+      "population": 21000000,
+      "rainfall_mm": 2167,
+      "currency": "USD",
+      "carbon_credit_price": 25
+    },
+    "metrics": {
+      "air_flow_m3_s": 3.8533333333333335,
+      "air_volume_day_m3": 332928.0,
+      "particulates": {
+        "air_volume_day": 332928.0,
+        "pm25_kg_day": 0.026481093120000004,
+        "pm10_kg_day": 0.05005572480000001,
+        "total_particulates_kg_day": 0.07653681792000001
+      },
+      "water_liters_day": 15527.634814410514,
+      "energy_kwh_day": 16.5,
+      "co2_kg_day": 19.938600000000005
+    },
+    "economics": {
+      "carbon_credits_usd": 181.93972500000004,
+      "water_revenue_usd": 3967.310695081886,
+      "energy_revenue_usd": 722.6999999999999,
+      "health_savings_usd": 69.83984635200001,
+      "total_annual_revenue_usd": 4941.790266433885,
+      "opex_annual_usd": 85000,
+      "net_annual_usd": -80058.20973356611,
+      "capex_usd": 3500000,
+      "roi_years": 999
+    }
+  },
+  {
+    "city": "Baghdad_Iraq",
+    "country": "Iraq",
+    "parameters": {
+      "country": "Iraq",
+      "pm25_avg": 91,
+      "pm10_avg": 170,
+      "humidity_avg": 45,
+      "temp_avg": 23,
+      "wind_avg": 4.0,
+      "population": 8000000,
+      "rainfall_mm": 150,
+      "currency": "USD",
+      "carbon_credit_price": 15
+    },
+    "metrics": {
+      "air_flow_m3_s": 4.463320463320463,
+      "air_volume_day_m3": 385630.88803088805,
+      "particulates": {
+        "air_volume_day": 385630.88803088805,
+        "pm25_kg_day": 0.03403963848648649,
+        "pm10_kg_day": 0.06359053343629344,
+        "total_particulates_kg_day": 0.09763017192277992
+      },
+      "water_liters_day": 5977.212943417953,
+      "energy_kwh_day": 24.629737609329442,
+      "co2_kg_day": 15.168600000000003
+    },
+    "economics": {
+      "carbon_credits_usd": 83.04808500000001,
+      "water_revenue_usd": 5126.954402216749,
+      "energy_revenue_usd": 1078.7825072886296,
+      "health_savings_usd": 89.08753187953668,
+      "total_annual_revenue_usd": 6377.8725263849165,
+      "opex_annual_usd": 85000,
+      "net_annual_usd": -78622.12747361508,
+      "capex_usd": 3500000,
+      "roi_years": 999
+    }
+  },
+  {
+    "city": "Lima_Peru",
+    "country": "Peru",
+    "parameters": {
+      "country": "Peru",
+      "pm25_avg": 76,
+      "pm10_avg": 135,
+      "humidity_avg": 82,
+      "temp_avg": 19,
+      "wind_avg": 2.8,
+      "population": 11000000,
+      "rainfall_mm": 13,
+      "currency": "USD",
+      "carbon_credit_price": 28
+    },
+    "metrics": {
+      "air_flow_m3_s": 3.1671232876712323,
+      "air_volume_day_m3": 273639.45205479447,
+      "particulates": {
+        "air_volume_day": 273639.45205479447,
+        "pm25_kg_day": 0.02017270040547945,
+        "pm10_kg_day": 0.03583308624657534,
+        "total_particulates_kg_day": 0.05600578665205479
+      },
+      "water_liters_day": 7105.712131376746,
+      "energy_kwh_day": 8.447999999999999,
+      "co2_kg_day": 13.992000000000003
+    },
+    "economics": {
+      "carbon_credits_usd": 142.99824,
+      "water_revenue_usd": 6450.245715817899,
+      "energy_revenue_usd": 370.02239999999995,
+      "health_savings_usd": 51.10528031999999,
+      "total_annual_revenue_usd": 7014.371636137898,
+      "opex_annual_usd": 85000,
+      "net_annual_usd": -77985.6283638621,
+      "capex_usd": 3500000,
+      "roi_years": 999
+    }
+  }
+]
