@@ -20,8 +20,11 @@
 
 **Earth → Mars Technology Transfer**
 
-[![XPRIZE 2026](https://img.shields.io/badge/XPRIZE-Carbon_Removal_2026-blue)](docs/XPRIZE_Application_Complete.md)
-[![Mars Ready](https://img.shields.io/badge/Mars-Ready-red)](docs/Mars_Adaptation_Specifications.md)
+[![NASA](https://img.shields.io/badge/Target-NASA-0B3D91)](docs/Space_Agencies_Proposal.md)
+[![SpaceX](https://img.shields.io/badge/Target-SpaceX-000000)](docs/Mars_Adaptation_Specifications.md)
+[![ESA](https://img.shields.io/badge/Target-ESA-003247)](docs/Space_Agencies_Proposal.md)
+[![CNSA](https://img.shields.io/badge/Target-CNSA_中国-FF0000)](docs/Space_Agencies_Proposal.md)
+[![ISRO](https://img.shields.io/badge/Target-ISRO-FF9933)](docs/Space_Agencies_Proposal.md)
 [![Global Coverage](https://img.shields.io/badge/Cities-10_Countries-green)](docs/10_Cities_Impact_Table.md)
 [![License](https://img.shields.io/badge/License-CERN_OHL_S_v2-green)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-yellow)](requirements.txt)
